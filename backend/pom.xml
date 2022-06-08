@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.yannfigueiredo</groupId>
-	<artifactId>pesquisagamer</artifactId>
+	<artifactId>gamerpreferencesurvey</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>pesquisagamer</name>
-	<description>Pesquisa Gamer</description>
+	<name>gamerpreferencesurvey</name>
+	<description>Gamer Preference Survey</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
