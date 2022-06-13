@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yannfigueiredo.gamerpreferencesurvey.dto.GameDTO;
-import com.yannfigueiredo.gamerpreferencesurvey.entities.Game;
-import com.yannfigueiredo.gamerpreferencesurvey.repositories.GameRepository;
 import com.yannfigueiredo.gamerpreferencesurvey.services.GameService;
 
 @RestController
