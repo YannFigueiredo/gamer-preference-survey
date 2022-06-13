@@ -1,8 +1,9 @@
 package com.yannfigueiredo.gamerpreferencesurvey.services;
 
 import java.time.Instant;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +13,8 @@ import com.yannfigueiredo.gamerpreferencesurvey.entities.Game;
 import com.yannfigueiredo.gamerpreferencesurvey.entities.Vote;
 import com.yannfigueiredo.gamerpreferencesurvey.repositories.GameRepository;
 import com.yannfigueiredo.gamerpreferencesurvey.repositories.VoteRepository;
+
+
 
 @Service
 public class VoteService {
@@ -36,5 +39,10 @@ public class VoteService {
 		entity = voteRepo.save(entity);
 		
 		return new VoteDTO(entity);
+	}
+	
+	@Transactional(readOnly = true)
+	public Page<VoteDTO> findByDates(Instant minDate, Instant maxDate, PageRequest pageRequest) {
+		return voteRepo.findByDates(minDate, maxDate, pageRequest).map(x -> new VoteDTO(x));
 	}
 }
