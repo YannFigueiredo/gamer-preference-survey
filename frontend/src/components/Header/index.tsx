@@ -1,9 +1,18 @@
-import { Container } from './styles';
+import { Container, ContainerLogo } from './styles';
+import { Link } from 'react-router-dom';
+import { ReactComponent as Logo } from '../../assets/logo.svg';
 
 export default function Header(){
     return(
         <Container>
-            <h1>Header</h1>
+            <ContainerLogo>
+                <div>
+                    <Link to='/'>
+                        <Logo/>
+                    </Link>
+                </div>
+                <Link to='/'><span>Gamer Preference</span> Survey</Link>
+            </ContainerLogo>
         </Container>
     );
 }

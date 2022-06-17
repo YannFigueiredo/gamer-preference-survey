@@ -6,12 +6,14 @@ const GlobalStyle = createGlobalStyle `
         --color-dark-green-secondary: #0A2A12;
         --color-light-green: #01DF01;
         --color-gold-yellow: #D7DF01;
+        --color-gray: #37474F;
     }
 
     *{
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        font-family: 'Play', sans-serif;
     }
 `
 
