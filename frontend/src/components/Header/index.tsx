@@ -7,7 +7,7 @@ export default function Header(){
         <Container>
             <ContainerLogo>
                 <div>
-                    <Link to='/'>
+                    <Link to='/'>   
                         <Logo/>
                     </Link>
                 </div>
