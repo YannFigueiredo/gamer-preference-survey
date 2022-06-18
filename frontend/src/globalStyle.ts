@@ -8,10 +8,11 @@ const GlobalStyle = createGlobalStyle `
         --color-light-green: #01DF01;
         --color-light-green-hover: #5ff15f;
         --color-gold-yellow: #D7DF01;
+        --color-gold-yellow-hover: #f8fd64;;
         --color-gray: #37474F;
         
         //Spacing
-        --padding-standard: 15px;
+        --padding-standard: 25px;
     }
 
     *{

@@ -56,7 +56,7 @@ export const ButtonHome = styled.div `
         border-top-left-radius: 8px;
         border-bottom-left-radius: 8px;
         height: 100%;
-        transition: all linear .7s;
+        transition: all linear .4s;
     }
 
     div:nth-child(1) span{

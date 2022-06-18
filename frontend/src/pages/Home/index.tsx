@@ -15,7 +15,7 @@ export default function Home(){
                         Clique no botão abaixo e descubra a preferência dos gamers!
                     </span>
                 </div>
-                <Link to='/reacords'>
+                <Link to='/records'>
                     <ButtonHome>
                         <div>
                             <span>Ver jogos populares</span>
