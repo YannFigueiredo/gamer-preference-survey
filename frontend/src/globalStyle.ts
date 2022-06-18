@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle `
         --color-gold-yellow: #D7DF01;
         --color-gold-yellow-hover: #f8fd64;;
         --color-gray: #37474F;
+        --color-gray-light: #767879;
         
         //Spacing
         --padding-standard: 25px;
