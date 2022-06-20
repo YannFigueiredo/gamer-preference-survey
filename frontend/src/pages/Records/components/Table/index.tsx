@@ -1,15 +1,10 @@
 import { Container } from './styles';
-import { useState } from 'react';
+import { useContext } from 'react';
+import { RecordContext } from '../../../../contexts/Records';
 
 export default function Table(){
-    const [ records, setRecords ] = useState([
-        {id: 0, instant: '17/06/2022 20:10', name: 'Yann Figueiredo', age: 27, platform: 'Playstation', genre: 'Ação', game: 'God of War'},
-        {id: 1, instant: '17/06/2022 20:10', name: 'Max Figueiredo', age: 3, platform: 'Xbox', genre: 'Ação', game: 'Halo'},
-        {id: 2, instant: '17/06/2022 20:10', name: 'Kratos Soares', age: 33, platform: 'Playstation', genre: 'Horror', game: 'The Last of US'},
-        {id: 3, instant: '17/06/2022 20:10', name: 'Lucas Fidalgo', age: 28, platform: 'PC', genre: 'RPG', game: 'Final fantasy'},
-        {id: 4, instant: '17/06/2022 20:10', name: 'Bruto Hernandez', age: 15, platform: 'PC', genre: 'Ação', game: 'Fall guys'}
-    ]);
-
+    const { records } = useContext(RecordContext);
+        
     return(
         <Container>
             <table>
@@ -24,14 +19,14 @@ export default function Table(){
                     </tr>
                 </thead>
                 <tbody>
-                    {records.map(record => (
+                    {records.content.map(record => (
                         <tr key={record.id}>
-                            <td>{record.instant}</td>
-                            <td>{record.name}</td>
+                            <td>{record.date}</td>
+                            <td>{record.voter}</td>
                             <td>{record.age}</td>
-                            <td>{record.platform}</td>
-                            <td>{record.genre}</td>
-                            <td>{record.game}</td>
+                            <td>{record.gamePlatform}</td>
+                            <td>{record.gameGenre}</td>
+                            <td>{record.gameName}</td>
                         </tr>
                     ))}
                 </tbody>

@@ -1,10 +1,13 @@
 import React from 'react';
 
 import { RoutesApp } from './routes';
+import RecordProvider from './contexts/Records';
 
 function App() {
   return (
-    <RoutesApp/>
+    <RecordProvider>
+      <RoutesApp/>
+    </RecordProvider>
   );
 }
 
