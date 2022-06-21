@@ -5,7 +5,7 @@ export const Container = styled.div `
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 25px var(--padding-standard) 10px var(--padding-standard);
+    padding: 25px var(--padding-standard) 30px var(--padding-standard);
     width: 100%;
     margin: auto;
 

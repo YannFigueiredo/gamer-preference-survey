@@ -13,7 +13,7 @@ export const Container = styled.section `
 
     table tr{
         display: grid;
-        grid-template-columns: 2fr 3fr 1fr 1.5fr 2fr 4fr;
+        grid-template-columns: 2.5fr 3fr 1fr 1.5fr 2fr 4fr;
         grid-template-rows: auto;
     }
 

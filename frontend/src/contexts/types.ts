@@ -15,7 +15,7 @@ export type RecordItem = {
     gameName: string;
 }
 
-export type Platform = 'PC' | 'Playstation' | 'Xbox';
+export type Platform = 'Playstation' | 'PC' | 'Xbox';
 
 export type RecordContextType = {
     records: RecordResponse;

@@ -21,7 +21,7 @@ export default function Table(){
                 <tbody>
                     {records.content.map(record => (
                         <tr key={record.id}>
-                            <td>{record.date}</td>
+                            <td>{record.date.substring(0, 19)}</td>
                             <td>{record.voter}</td>
                             <td>{record.age}</td>
                             <td>{record.gamePlatform}</td>
