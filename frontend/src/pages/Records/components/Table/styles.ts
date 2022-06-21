@@ -69,13 +69,12 @@ export const Pages = styled.div `
     align-items: center;
     margin-top: 10px;
 
-    div{
+    button{
         margin-right: 8px;
         width: 40px;
         height: 40px;
         background-color: var(--color-gray);
         color: var(--color-light-green);
-        cursor: pointer;
         border-radius: 8px;
         display: flex;
         justify-content: center;
@@ -85,7 +84,7 @@ export const Pages = styled.div `
         transition: all linear .4s;
     }
 
-    div:hover, div.active{
+    button:hover, button.active{
         background-color: var(--color-gold-yellow);
         color: var(--color-dark-green-secondary);
     }

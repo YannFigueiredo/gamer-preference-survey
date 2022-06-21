@@ -26,6 +26,19 @@ const GlobalStyle = createGlobalStyle `
     body{
         background-color: var(--color-dark-green-primary);
     }
+
+    button{
+        border: none;
+        background: none;
+        width: 272px;
+        height: 44px;
+        font-size: 1em;
+        font-weight: 700;
+        cursor: pointer;
+        border-radius: 8px;
+        text-transform: uppercase;
+        color: var(--color-dark-green-secondary);
+    }
 `
 
 export default GlobalStyle;

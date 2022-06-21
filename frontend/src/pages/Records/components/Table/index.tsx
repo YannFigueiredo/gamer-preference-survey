@@ -5,17 +5,7 @@ import { formatDate } from '../../helpers';
 
 export default function Table(){
     const { records, page, setPage } = useContext(RecordContext);
-    const [ totalPages, setTotalPages ] = useState<number[]>([]);
-
-    useEffect(() => {
-        let qtdePages = [];
-
-        for(var i = 0; i < records.totalPages; i++){
-            qtdePages.push(i);
-        }
-
-        setTotalPages(qtdePages);
-    }, [records]);
+    const paginationItems = Array.from(Array(records.totalPages).keys());
         
     return(
         <Container>
@@ -45,8 +35,8 @@ export default function Table(){
             </table>
             <Pages>
                 {
-                    totalPages.map(btnPage => (
-                        <div key={btnPage} className={page === btnPage.toString() ? 'active' : ''} onClick={() => {setPage(btnPage.toString());}}>{btnPage+1}</div>
+                    paginationItems.map(item => (
+                        <button key={item} className={page === item.toString() ? 'active' : ''} onClick={() => {setPage(item.toString());}}>{item + 1}</button>
                     ))
                 }
             </Pages>
