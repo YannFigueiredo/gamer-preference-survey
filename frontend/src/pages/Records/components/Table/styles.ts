@@ -62,3 +62,31 @@ export const Container = styled.section `
         background-color: var(--color-gray-light);
     }
 `
+
+export const Pages = styled.div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+
+    div{
+        margin-right: 8px;
+        width: 40px;
+        height: 40px;
+        background-color: var(--color-gray);
+        color: var(--color-light-green);
+        cursor: pointer;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+        font-size: 18px;
+        transition: all linear .4s;
+    }
+
+    div:hover, div.active{
+        background-color: var(--color-gold-yellow);
+        color: var(--color-dark-green-secondary);
+    }
+`

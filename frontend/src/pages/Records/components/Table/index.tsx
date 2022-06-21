@@ -1,9 +1,21 @@
-import { Container } from './styles';
-import { useContext } from 'react';
+import { Container, Pages } from './styles';
+import { useContext, useState, useEffect } from 'react';
 import { RecordContext } from '../../../../contexts/Records';
+import { formatDate } from '../../helpers';
 
 export default function Table(){
-    const { records } = useContext(RecordContext);
+    const { records, page, setPage } = useContext(RecordContext);
+    const [ totalPages, setTotalPages ] = useState<number[]>([]);
+
+    useEffect(() => {
+        let qtdePages = [];
+
+        for(var i = 0; i < records.totalPages; i++){
+            qtdePages.push(i);
+        }
+
+        setTotalPages(qtdePages);
+    }, [records]);
         
     return(
         <Container>
@@ -21,7 +33,7 @@ export default function Table(){
                 <tbody>
                     {records.content.map(record => (
                         <tr key={record.id}>
-                            <td>{record.date.substring(0, 19)}</td>
+                            <td>{formatDate(record.date)}</td>
                             <td>{record.voter}</td>
                             <td>{record.age}</td>
                             <td>{record.gamePlatform}</td>
@@ -31,6 +43,13 @@ export default function Table(){
                     ))}
                 </tbody>
             </table>
+            <Pages>
+                {
+                    totalPages.map(btnPage => (
+                        <div key={btnPage} className={page === btnPage.toString() ? 'active' : ''} onClick={() => {setPage(btnPage.toString());}}>{btnPage+1}</div>
+                    ))
+                }
+            </Pages>
         </Container>
     );
 }

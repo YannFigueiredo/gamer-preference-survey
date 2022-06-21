@@ -20,6 +20,8 @@ export type Platform = 'Playstation' | 'PC' | 'Xbox';
 export type RecordContextType = {
     records: RecordResponse;
     setRecords: (newRecord: RecordResponse) => void;
+    page: string;
+    setPage: (newPage: string) => void;
 }
 
 export type RecordContextProps = {
