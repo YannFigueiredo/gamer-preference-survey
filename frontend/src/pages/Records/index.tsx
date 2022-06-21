@@ -1,11 +1,11 @@
 import { Container } from './styles';
-import Options from './components/Options';
+import Filters from '../../components/Filters';
 import Table from './components/Table';
 
 export default function Records(){
     return(
         <Container>
-            <Options/>
+            <Filters link='/graphics' textButton='Ver gráficos' justifyContent='space-between'/>
             <Table/>
         </Container>
     );

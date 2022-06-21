@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div `
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
     background-color: var(--color-gray);
@@ -19,12 +18,12 @@ export const Container = styled.div `
         background-color: var(--color-gold-yellow-hover);
     }
 
-    #btn-graphs{
+    #btn-link{
         background-color: var(--color-light-green);
         transition: all linear .4s;
     }
 
-    #btn-graphs:hover{
+    #btn-link:hover{
         background-color: var(--color-light-green-hover);
     }
 

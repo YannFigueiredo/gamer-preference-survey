@@ -2,13 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div `
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 25px var(--padding-standard) 30px var(--padding-standard);
-`
-export const Stats = styled.div `
-    display: flex;
     margin-top: 25px;
     width: 100%;
 

@@ -1,5 +1,5 @@
 import { Container, Pages } from './styles';
-import { useContext, useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { RecordContext } from '../../../../contexts/Records';
 import { formatDate } from '../../helpers';
 
