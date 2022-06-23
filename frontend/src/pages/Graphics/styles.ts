@@ -12,10 +12,17 @@ export const Stats = styled.div `
     margin-top: 25px;
     width: 100%;
 
-    h1{
+    h1, h2{
         color: white;
-        font-size: 26px;
         font-weight: 700;
+    }
+
+    h1{
+        font-size: 26px;
+    }
+
+    h2{
+        font-size: 20px;
     }
 `
 export const GamesStats = styled.section `
@@ -38,10 +45,12 @@ export const OthersStats = styled.section `
 export const PlatformsStats = styled.div `
     background-color: var(--color-gray);
     padding: 12px;
+    border-radius: 8px;
 `
 
 export const GenresStats = styled.div `
     background-color: var(--color-gray);
     margin-top: 15px;
     padding: 12px;
+    border-radius: 8px;
 `
