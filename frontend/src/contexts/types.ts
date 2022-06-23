@@ -27,3 +27,18 @@ export type RecordContextType = {
 export type RecordContextProps = {
     children: ReactNode;
 }
+
+export type GameItem = {
+    id: number;
+    title: string;
+    platform: Platform;
+};
+
+export type GameContextType = {
+    games: GameItem[];
+    setGames: (newGame: GameItem[]) => void;
+}
+
+export type GameContextProps = {
+    children: ReactNode;
+}

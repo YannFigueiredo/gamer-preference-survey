@@ -30,7 +30,6 @@ const GlobalStyle = createGlobalStyle `
     button{
         border: none;
         background: none;
-        width: 272px;
         height: 44px;
         font-size: 1em;
         font-weight: 700;
@@ -38,6 +37,18 @@ const GlobalStyle = createGlobalStyle `
         border-radius: 8px;
         text-transform: uppercase;
         color: var(--color-dark-green-secondary);
+    }
+
+    input, select{
+        height: 44px;
+        margin-right: 8px;
+        border-radius: 8px;
+        padding: 5px;
+        color: var(--color-dark-green-primary);
+    }
+
+    div img{
+        max-width: 100%;
     }
 `
 

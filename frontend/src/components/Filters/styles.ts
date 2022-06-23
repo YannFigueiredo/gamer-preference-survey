@@ -27,11 +27,7 @@ export const Container = styled.div `
         background-color: var(--color-light-green-hover);
     }
 
-    input{
+    input, button{
         width: 272px;
-        height: 44px;
-        margin-right: 8px;
-        border-radius: 8px;
-        padding: 5px;
     }
 `

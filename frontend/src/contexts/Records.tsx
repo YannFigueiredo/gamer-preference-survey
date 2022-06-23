@@ -18,7 +18,6 @@ export default function RecordProvider({children}: RecordContextProps){
     async function loadApi(){
         await recordsApi.get(`/votes?linesPerPage=12&page=${page}`)
         .then(response => {
-            console.log(response);
             setRecords(response.data);
         })
         .catch((error) => {console.error("Erro: " + error)});
