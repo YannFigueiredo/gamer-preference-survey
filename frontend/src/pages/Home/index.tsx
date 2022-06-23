@@ -1,4 +1,4 @@
-import { Container, Info, Art, ButtonHome } from './styles';
+import { Container, Info, Intro, Art, ButtonHome } from './styles';
 import { Link } from 'react-router-dom';
 import art from '../../assets/home-art.png'; 
 import { ReactComponent as Arrow } from '../../assets/arrow.svg';
@@ -7,14 +7,24 @@ export default function Home(){
     return(
         <Container>
             <Info>
-                <div>
+                <Intro>
                     <h1>
                         Quais jogos a comunidade está jogando mais?
                     </h1>
                     <span>
-                        Clique no botão abaixo e descubra a preferência dos gamers!
+                        Vote no seu jogo favorito e confira os mais populares!
                     </span>
-                </div>
+                </Intro>
+                <Link to='/registration'>
+                    <ButtonHome>
+                        <div>
+                            <span>Votar em um jogo</span>
+                        </div>
+                        <div>
+                            <Arrow/>
+                        </div>
+                    </ButtonHome>
+                </Link>
                 <Link to='/records'>
                     <ButtonHome>
                         <div>

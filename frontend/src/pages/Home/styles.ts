@@ -5,6 +5,7 @@ export const Container = styled.div `
     justify-content: center;
     align-items: center;
     padding: 10px var(--padding-standard);
+    height: 90vh;
 `
 
 export const Info = styled.div `
@@ -12,6 +13,7 @@ export const Info = styled.div `
 
     a{
         text-decoration: none;
+        display: inline-block;
     }
 
     div{
@@ -34,14 +36,19 @@ export const Info = styled.div `
     }
 `
 
+export const Intro = styled.div `
+    margin-bottom: 70px;
+`
+
 export const ButtonHome = styled.div `
-    margin-top: 75px;
+    margin-top: 20px;
     display: flex;
     flex-direction: row !important;
     align-items: center;
     justify-content: flex-start;
     color: black;
     height: 50px;
+    width: 300px;
 
     div{
         padding: 12px;
@@ -57,6 +64,7 @@ export const ButtonHome = styled.div `
         border-bottom-left-radius: 8px;
         height: 100%;
         transition: all linear .4s;
+        width: 250px;
     }
 
     div:nth-child(1) span{
@@ -76,6 +84,7 @@ export const ButtonHome = styled.div `
         border-top-right-radius: 8px;
         border-bottom-right-radius: 8px;
         height: 100%;
+        width: 50px;
     }
 
     div:nth-child(2) svg{
