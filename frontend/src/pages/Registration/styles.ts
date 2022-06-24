@@ -71,18 +71,17 @@ export const Card = styled.div `
     height: 200px;
     background-color: white;
     border-radius: 8px;
-    cursor: pointer;
     transition: all linear .4s;
 
-    &:hover, &.active{
+    &.active{
         background-color: var(--color-light-green-hover);
     }
 
-    &:hover div svg path, &.active div svg path{
+    &.active div svg path{
         fill: var(--color-dark-green-primary); 
     }
 
-    &:hover span, &.active span{
+    &.active span{
         color: var(--color-dark-green-primary); 
     }
 
