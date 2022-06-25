@@ -17,9 +17,18 @@ export default function Filters({link, textButton, justifyContent}: Props){
 
     useEffect(() => {
         async function loadApi(){
-            await apiRecords.get(`/votes?min=${Date.parse(minDate)}&max=${Date.parse(maxDate)}&linesPerPage=12&page=${page}&orderBy=date}`)
+            await apiRecords.get(`/votes`, {
+                params: {
+                    page: page,
+                    linesPerPage: 12,
+                    orderBy: 'date',
+                    direction: 'DESC',
+                    min: minDate,
+                    max: maxDate
+                }
+            })
             .then(response => {
-                console.log(response.data.content);
+                setRecords(response.data);
             })
             .catch(error => {
                 console.log("Erro: " + error);
