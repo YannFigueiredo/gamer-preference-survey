@@ -15,31 +15,46 @@ export default function Filters({link, textButton, justifyContent}: Props){
     const [ minDate, setMinDate ] = useState<string>('');
     const [ maxDate, setMaxDate ] = useState<string>('');
 
-    useEffect(() => {
-        async function loadApi(){
-            await apiRecords.get(`/votes`, {
-                params: {
-                    page: page,
-                    linesPerPage: 12,
-                    orderBy: 'date',
-                    direction: 'DESC',
-                    min: minDate,
-                    max: maxDate
-                }
-            })
-            .then(response => {
-                setRecords(response.data);
-            })
-            .catch(error => {
-                console.log("Erro: " + error);
-            });
-        }
+    const loadApi = async () => {
+        await apiRecords.get(`/votes`, {
+            params: {
+                page: page,
+                linesPerPage: 12,
+                min: minDate,
+                max: maxDate
+            }
+        })
+        .then(response => {
+            setRecords(response.data);
+        })
+        .catch(error => {
+            console.log("Erro: " + error);
+        });
+    }
 
-        if(minDate !== '' && maxDate !== ''){
+    const cleanFilter = () => {
+        let inputMinDate = document.getElementById('min-date') as HTMLInputElement;
+        let inputMaxDate = document.getElementById('max-date') as HTMLInputElement;
+        
+        setMinDate('');
+        setMaxDate('');
+        setPage('0');
+        
+        inputMinDate.value = '';
+        inputMaxDate.value = '';
+
+        loadApi();
+    };
+
+    useEffect(() => {
+        if(minDate !== '' && maxDate !== '' && (maxDate > minDate)){
             setPage('0');
 
             loadApi();
         }
+
+        if(minDate !== '' && maxDate !== '' && (maxDate < minDate))
+            alert('A data inicial precisa ser antes da final!');
     }, [minDate, maxDate]);
 
     return(
@@ -53,7 +68,7 @@ export default function Filters({link, textButton, justifyContent}: Props){
                     <input type='date' placeholder='Data final' id='max-date' onChange={(e) => {
                         setMaxDate(e.target.value+'T23:59:59Z');
                     }}/>
-                    <button id='btn-reset-filter'>Limpar pesquisa</button>
+                    <button id='btn-reset-filter' onClick={() => {cleanFilter()}}>Limpar pesquisa</button>
                 </div>
             }
             <Link to={link}>
