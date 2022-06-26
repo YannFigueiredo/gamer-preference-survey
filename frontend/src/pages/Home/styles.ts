@@ -6,6 +6,13 @@ export const Container = styled.div `
     align-items: center;
     padding: 10px var(--padding-standard);
     height: 90vh;
+
+    @media (max-width: 768px){
+        &{
+            flex-direction: column;
+            height: auto;
+        }
+    }
 `
 
 export const Info = styled.div `
@@ -13,7 +20,7 @@ export const Info = styled.div `
 
     a{
         text-decoration: none;
-        display: inline-block;
+        display: block;
     }
 
     div{
@@ -33,6 +40,20 @@ export const Info = styled.div `
         color: var(--color-gold-yellow);
         font-size: 1.2em;
         font-weight: 700;
+    }
+
+    @media (max-width: 768px){
+        &{
+            width: auto;
+        }
+
+        div h1{
+            font-size: 2em;
+        }
+
+        div span{
+            font-size: 1em;
+        }
     }
 `
 
@@ -97,6 +118,21 @@ export const ButtonHome = styled.div `
     div:nth-child(2) svg path{
         stroke: var(--color-dark-green-secondary);
     }
+
+    @media (max-width: 768px){
+        &{
+            width: 250px;
+        }
+
+        div{
+            padding: 8x;
+        }
+
+        div:nth-child(1) span{
+            font-size: 1em;
+            text-align: center;
+        }
+    }
 `
 
 export const Art = styled.div `
@@ -105,5 +141,12 @@ export const Art = styled.div `
     
     img{
         width: 100%;
+    }
+
+    @media (max-width: 768px){
+        &{
+            margin: 20px auto 0 auto;
+            width: 350px;
+        }
     }
 `

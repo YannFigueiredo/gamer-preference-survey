@@ -43,6 +43,16 @@ export const Container = styled.div `
     input, select{
         margin-right: 0;
     }
+
+    @media screen and (max-width: 768px){
+        select{
+            width: 65%;
+        }
+
+        #btn-submit{
+            width: 200px;
+        }
+    }
 `
 
 export const PessoalInfos = styled.div `
@@ -51,19 +61,39 @@ export const PessoalInfos = styled.div `
     grid-template-columns: repeat(2, 49%);
     grid-template-rows: auto;
     grid-column-gap: 2%;
+
+    @media screen and (max-width: 768px){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        input{
+            width: 65%;
+        }
+
+        input:first-child{
+            margin-bottom: 20px;
+        }
+    }
 `
 
 export const PlatformsCards = styled.div `
     display: grid;
-    width: 500px;
+    width: 480px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
+    grid-gap: 8px;
     margin-top: 20px;
     margin-bottom: 20px;
+
+    @media screen and (max-width: 768px){
+        width: 370px;
+    }
 `
 
 export const Card = styled.div `
-    width: 150px;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -100,5 +130,13 @@ export const Card = styled.div `
         font-weight: 700;
         color: var(--color-gray-light);
         text-transform: uppercase;
+    }
+
+    @media screen and (max-width: 768px){
+        height: 150px;
+        
+        span{
+            font-size: 0.8em;
+        }
     }
 `
