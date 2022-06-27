@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const Container = styled.section `
     width: 100%;
     margin-top: 25px;
+`
+
+export const ContainerTable = styled.div `
+    overflow-x: auto;
 
     table{
         width: 100%;
@@ -10,7 +14,6 @@ export const Container = styled.section `
         border-bottom: 6px solid var(--color-light-green);
         border-radius: 8px;
         min-width: 1200px;
-        overflow: auto;
     }
 
     table tr{
