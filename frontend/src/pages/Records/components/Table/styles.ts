@@ -9,6 +9,8 @@ export const Container = styled.section `
         border-spacing: 0;
         border-bottom: 6px solid var(--color-light-green);
         border-radius: 8px;
+        min-width: 1200px;
+        overflow: auto;
     }
 
     table tr{
@@ -67,10 +69,12 @@ export const Pages = styled.div `
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     margin-top: 10px;
 
     button{
         margin-right: 8px;
+        margin-bottom: 8px;
         width: 40px;
         height: 40px;
         background-color: var(--color-gray);

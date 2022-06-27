@@ -30,4 +30,28 @@ export const Container = styled.div `
     input, button{
         width: 272px;
     }
+
+    @media screen and (max-width: 768px){
+        flex-direction: column;
+        justify-content: center !important;
+    }
+
+    @media screen and (max-width: 992px){
+        div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input, #btn-reset-filter{
+            margin: 0 auto 5px auto;
+        }
+    }
+
+    @media screen and (max-width: 1200px){
+        input, button{
+            width: 220px;
+        }
+    }
 `

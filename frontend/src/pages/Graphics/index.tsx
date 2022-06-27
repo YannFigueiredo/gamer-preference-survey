@@ -65,7 +65,7 @@ export default function Graphics(){
                             <Chart
                                 options={{...pieOptions, labels: platformData?.labels}}
                                 type="donut"
-                                width="350"
+                                width="85%"
                                 series={platformData?.series}
                             />
                         </div>
@@ -76,7 +76,7 @@ export default function Graphics(){
                             <Chart
                                 options={{...pieOptions, labels: genrerData?.labels}}
                                 type="donut"
-                                width="350"
+                                width="85%"
                                 series={genrerData?.series}
                             />
                         </div>

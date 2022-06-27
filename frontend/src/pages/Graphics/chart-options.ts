@@ -76,7 +76,7 @@ export const barOptions = {
         maxWidth: 360,
         style: {
           colors: "#01DF01",
-          fontSize: "18px",
+          fontSize: '16px',
           fontFamily: "Play, sans-serif",
           fontWeight: 700,
         },

@@ -24,6 +24,10 @@ export const Stats = styled.div `
     h2{
         font-size: 20px;
     }
+
+    @media screen and (max-width: 1200px){
+        flex-direction: column;
+    }
 `
 export const GamesStats = styled.section `
     background-color: var(--color-gray);
@@ -31,6 +35,10 @@ export const GamesStats = styled.section `
     padding: 12px;
     width: 70%;
     margin-right: 15px;
+
+    @media screen and (max-width: 1200px){
+        width: 100%;
+    }
 `
 
 export const OthersStats = styled.section `
@@ -40,12 +48,32 @@ export const OthersStats = styled.section `
     div{
         min-height: 200px;
     }
+
+    @media screen and (max-width: 1200px){
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        div{
+            min-height: auto;
+        }
+    }
+
+    @media screen and (max-width: 768px){
+        flex-direction: column;
+    }
 `
 
 export const PlatformsStats = styled.div `
     background-color: var(--color-gray);
     padding: 12px;
     border-radius: 8px;
+
+    @media screen and (max-width: 1200px){
+        width: 100%;
+    }
 `
 
 export const GenresStats = styled.div `
@@ -53,4 +81,15 @@ export const GenresStats = styled.div `
     margin-top: 15px;
     padding: 12px;
     border-radius: 8px;
+
+    @media screen and (max-width: 1200px){
+        margin-left: 20px;
+        margin-top: 0px;
+        width: 100%;
+    }
+
+    @media screen and (max-width: 768px){
+        margin-top: 20px;
+        margin-left: 0px;
+    }
 `
