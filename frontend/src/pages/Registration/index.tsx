@@ -7,9 +7,6 @@ import { useNavigate } from 'react-router-dom';
 import { GameContext } from '../../contexts/Games';
 import apiRecords from '../../services/records-api';
 import {Record } from './types';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import 'react-toastify/dist/ReactToastify.min.css';
 
 export default function Registration(){
     const { games } = useContext(GameContext);
