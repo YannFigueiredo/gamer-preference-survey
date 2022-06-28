@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const apiRecords = axios.create({
+const recordsApi = axios.create({
     baseURL: 'http://gamerpreferencesurvey.herokuapp.com'
 });
 
-export default apiRecords;
+export default recordsApi;

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Container } from './styles';
 import { useContext, useState, useEffect } from 'react';
 import { RecordContext } from '../../contexts/Records';
-import apiRecords from '../../services/records-api';
+import recordsApi from '../../services/records-api';
 
 type Props = {
     link: string,
@@ -15,21 +15,12 @@ export default function Filters({link, textButton, justifyContent}: Props){
     const [ minDate, setMinDate ] = useState<string>('');
     const [ maxDate, setMaxDate ] = useState<string>('');
 
-    const loadApi = async () => {
-        await apiRecords.get(`/votes`, {
-            params: {
-                page: page,
-                linesPerPage: 12,
-                min: minDate,
-                max: maxDate
-            }
-        })
+    const loadApi = async (params: string) => {
+        await recordsApi.get(`/votes?linesPerPage=12&page=${page}${params}`)
         .then(response => {
             setRecords(response.data);
         })
-        .catch(error => {
-            console.log("Erro: " + error);
-        });
+        .catch((error) => {console.error("Erro: " + error)});
     }
 
     const cleanFilter = () => {
@@ -43,14 +34,14 @@ export default function Filters({link, textButton, justifyContent}: Props){
         inputMinDate.value = '';
         inputMaxDate.value = '';
 
-        loadApi();
+        loadApi('');
     };
 
     useEffect(() => {
         if(minDate !== '' && maxDate !== '' && (maxDate > minDate)){
             setPage('0');
 
-            loadApi();
+            loadApi(`&min=${minDate}&max=${maxDate}`);
         }
 
         if(minDate !== '' && maxDate !== '' && (maxDate < minDate))

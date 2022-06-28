@@ -36,8 +36,8 @@ export default function Registration(){
         <Container>
             <form onSubmit={onSubmit}>
                 <PessoalInfos>
-                    <input type='text' required placeholder='Nome' onChange={(e) => {setName(e.target.value)}}/>
-                    <input type='number' required placeholder='Idade' onChange={(e) => {setAge(parseInt(e.target.value))}}/>
+                    <input type='text' maxLength={20} required placeholder='Nome' onChange={(e) => {setName(e.target.value)}}/>
+                    <input type='number' min='1' max='120' required placeholder='Idade' onChange={(e) => {setAge(parseInt(e.target.value))}}/>
                 </PessoalInfos>
                 <PlatformsCards>
                     <Card className={platform === 'PC' ? 'active' : ''}>

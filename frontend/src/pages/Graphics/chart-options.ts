@@ -1,3 +1,5 @@
+import { isWhiteSpaceLike } from "typescript";
+
 export const pieOptions = {
   chart: {
     background: "transparent",
@@ -8,18 +10,22 @@ export const pieOptions = {
     show: false,
   },
   tooltip: {
-    enabled: true,
+    enabled: false,
   },
   dataLabels: {
     enabled: true,
     offsetX: 100,
     offsetY: 100,
+    textArchor: 'start',
     style: {
       colors: ["#a8dadc", "#D7DF01", "#01DF01", "#ffd6a5"],
       fontSize: "20px",
       fontFamily: "Play, sans-serif",
       fontWeight: 700,
     },
+    value: {
+      show: true
+    }
   },
   plotOptions: {
     pie: {
@@ -28,6 +34,17 @@ export const pieOptions = {
       dataLabels: {
         offset: 60,
       },
+      donut: {
+        labels: {
+          show: true,
+          name: {
+            fontSize: '18px'
+          },
+          value: {
+            color: "#fff"
+          }
+        }
+      }
     },
   },
 };
