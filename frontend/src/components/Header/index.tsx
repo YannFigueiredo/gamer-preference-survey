@@ -8,6 +8,8 @@ import { AiOutlineClose } from 'react-icons/ai';
 export default function Header(){
     const [ activePage, setActivePage ] = useState<string>(document.location.pathname);
     const [ menuIsOpen, setMenuIsOpen ] = useState<boolean>(false);
+    let mobileScreen = document.querySelector('body') as HTMLBodyElement;
+
     const verifyWidth = () => {
         if(window.innerWidth > 768){
             setMenuIsOpen(true);
@@ -17,6 +19,7 @@ export default function Header(){
     };
 
     useEffect(() => {
+        
         verifyWidth();
 
         window.addEventListener('resize', () => {
@@ -24,7 +27,7 @@ export default function Header(){
         });
     }, []);
 
-    useEffect(() => {setMenuIsOpen(false)}, [activePage]);
+    useEffect(() => {if(window.innerWidth <= 768) setMenuIsOpen(false)}, [activePage]);
 
     return(
         <Container>
@@ -38,10 +41,16 @@ export default function Header(){
             </ContainerLogo>
             <Menu>
                 {menuIsOpen === false &&
-                <GiHamburgerMenu id='btn-menu' size={25} onClick={() => {setMenuIsOpen(true)}}/>
+                <GiHamburgerMenu id='btn-menu' size={25} onClick={() => {
+                    setMenuIsOpen(true);
+                    mobileScreen.style.overflow = 'hidden';
+                }}/>
                 }
                 {menuIsOpen &&
-                <AiOutlineClose id='btn-menu-close' size={25} onClick={() => {setMenuIsOpen(false)}}/> 
+                <AiOutlineClose id='btn-menu-close' size={25} onClick={() => {
+                    setMenuIsOpen(false);
+                    mobileScreen.style.overflow = 'auto';
+                }}/> 
                 }
                 <ul className={menuIsOpen ? 'menu-opened' : 'menu-closed'}>
                     <Link to='/' className={activePage === '/' ? 'active' : ''} onClick={() => {setActivePage('/')}}>

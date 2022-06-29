@@ -18,11 +18,6 @@ export const Container = styled.div `
 export const Info = styled.div `
     width: 550px;
 
-    a{
-        text-decoration: none;
-        display: block;
-    }
-
     div{
         display: flex;
         flex-direction: column;
@@ -71,9 +66,14 @@ export const ButtonHome = styled.div `
     height: 50px;
     width: 300px;
 
+    a{
+        text-decoration: none;
+        display: flex;
+    }
+
     div{
         padding: 12px;
-        height: 100%;
+        height: 50px !important;
     }
 
     div:nth-child(1){

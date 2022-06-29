@@ -15,26 +15,26 @@ export default function Home(){
                         Vote no seu jogo favorito e confira os mais populares!
                     </span>
                 </Intro>
-                <Link to='/registration'>
-                    <ButtonHome>
+                <ButtonHome>
+                    <Link to='/registration'>
                         <div>
                             <span>Votar em um jogo</span>
                         </div>
                         <div>
                             <Arrow/>
                         </div>
-                    </ButtonHome>
-                </Link>
-                <Link to='/records'>
-                    <ButtonHome>
+                    </Link>
+                </ButtonHome>
+                <ButtonHome>
+                    <Link to='/records'>
                         <div>
                             <span>Ver jogos populares</span>
                         </div>
                         <div>
                             <Arrow/>
                         </div>
-                    </ButtonHome>
-                </Link>
+                    </Link>
+                </ButtonHome>
             </Info>
             <Art>
                 <img src={art} alt='Home art'></img>

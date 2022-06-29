@@ -45,6 +45,10 @@ export const Container = styled.div `
     }
 
     @media screen and (max-width: 768px){
+        height: auto;
+        margin-top: 25px;
+        margin-bottom: 15px;
+
         select{
             width: 65%;
         }
