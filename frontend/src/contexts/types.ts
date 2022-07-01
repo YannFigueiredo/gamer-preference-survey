@@ -22,6 +22,8 @@ export type RecordContextType = {
     setRecords: (newRecord: RecordResponse) => void;
     page: string;
     setPage: (newPage: string) => void;
+    filter: string;
+    setFilter: (newFilter: string) => void;
 }
 
 export type RecordContextProps = {

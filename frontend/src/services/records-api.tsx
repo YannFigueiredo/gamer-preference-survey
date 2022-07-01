@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const recordsApi = axios.create({
-    baseURL: 'http://gamerpreferencesurvey.herokuapp.com'
+    baseURL: 'https://gamerpreferencesurvey.herokuapp.com'
 });
 
 export default recordsApi;
