@@ -3,7 +3,7 @@
 
 # Sobre o projeto
 
-https://gamerpreferencesurvey.netlify
+https://gamerpreferencesurvey.netlify.app/
 
 Aplicativo Web que lista os jogos mais populares de acordo com os votos dos usuários. Os votos são registrados e lidos a partir de uma API, e até mesmo gráficos são gerados a partir desses registros.
 
