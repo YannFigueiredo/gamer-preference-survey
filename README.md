@@ -1,11 +1,11 @@
-# Game Preference Survey
+# Gamer Preference Survey
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/YannFigueiredo/gamer-preference-survey/blob/main/LICENSE) 
 
 # Sobre o projeto
 
 https://gamerpreferencesurvey.netlify.app/
 
-Aplicativo Web que lista os jogos mais populares de acordo com os votos dos usuários. Os votos são registrados e lidos a partir de uma API, e até mesmo gráficos são gerados a partir desses registros.
+Aplicativo Web que lista os jogos mais populares de acordo com os votos dos usuários, podendo ser filtrados pela data do registro. Os votos são registrados e lidos a partir de uma API, e até mesmo gráficos são gerados a partir desses registros.
 
 ## Layout
 <img src="https://github.com/YannFigueiredo/assets/blob/main/tela-home.png"  alt="Tela 1 - Página inicial" title="Página inicial"/>
