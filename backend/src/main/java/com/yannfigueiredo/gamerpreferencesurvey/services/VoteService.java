@@ -19,10 +19,10 @@ import com.yannfigueiredo.gamerpreferencesurvey.repositories.VoteRepository;
 @Service
 public class VoteService {
 	@Autowired
-	VoteRepository voteRepo;
+	private VoteRepository voteRepo;
 	
 	@Autowired
-	GameRepository gameRepo;
+	private GameRepository gameRepo;
 	
 	@Transactional
 	public VoteDTO insert(VoteInsertDTO dto) {

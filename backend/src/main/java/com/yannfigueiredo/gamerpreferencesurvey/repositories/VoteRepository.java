@@ -13,9 +13,14 @@ import com.yannfigueiredo.gamerpreferencesurvey.entities.Vote;
 @Repository
 public interface VoteRepository extends JpaRepository<Vote, Long> {
 	
+	//For H2 Database (test)
 	@Query("SELECT obj FROM Vote obj WHERE "
+			+ "(:minDate IS NULL OR obj.date >= :minDate) AND "
+			+ "(:maxDate IS NULL OR obj.date <= :maxDate)")
+	//For PostgreSQL (dev and prod)
+	/*@Query("SELECT obj FROM Vote obj WHERE "
 			+ "(coalesce(:minDate, null) IS NULL OR obj.date >= :minDate) AND "
-			+ "(coalesce(:maxDate, null) IS NULL OR obj.date <= :maxDate)")
+			+ "(coalesce(:maxDate, null) IS NULL OR obj.date <= :maxDate)")*/
 	Page<Vote> findByDates(Instant minDate, Instant maxDate, Pageable pageable);
 
 }
