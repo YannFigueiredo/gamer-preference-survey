@@ -70,4 +70,4 @@ npm start run
 
 Yann Fabricio Cardoso de Figueiredo
 
-https://www.linkedin.com/in/yann-figueiredo-5a5046102/
+https://www.linkedin.com/in/yannfigueiredo/
