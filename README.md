@@ -34,7 +34,7 @@ Aplicativo Web que lista os jogos mais populares de acordo com os votos dos usu�
 - Apex Charts
 
 ## Implantação em produção
-- Back end: Heroku
+- Back end: Railway
 - Front end: Netlify
 - Banco de dados: PostgreSQL
 
