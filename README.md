@@ -26,7 +26,7 @@ Aplicativo Web que lista os jogos mais populares de acordo com os votos dos usu√
 - PostgreSQL
 
 ## Front end
-- HTML / CSS / JavaScript / TypeScript
+- HTML / CSS  / TypeScript
 - ReactJS
 - Styled Components
 - Axios
