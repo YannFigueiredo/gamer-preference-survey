@@ -1,24 +1,25 @@
 import { connection } from "../database/connect.js";
 import { DataTypes, Model } from "sequelize";
 
-class VoteModel extends Model {}
+class ControlModel extends Model {} 
 
-VoteModel.init(
+ControlModel.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
+      primaryKey: true
     },
-    voter: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     }
   },
   {
     sequelize: connection,
-    modelName: "Vote"
+    modelName: "Control",
+    tableName: "controls"
   }
 );
 
-export default VoteModel;
+export default ControlModel;

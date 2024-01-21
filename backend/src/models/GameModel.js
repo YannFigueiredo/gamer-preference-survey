@@ -24,3 +24,5 @@ GameModel.init(
     modelName: "Game"
   }
 );
+
+export default GameModel;

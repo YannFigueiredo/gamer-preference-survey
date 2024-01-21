@@ -20,3 +20,5 @@ GenreModel.init(
     modelName: "Genre"
   }
 );
+
+export default GenreModel;
