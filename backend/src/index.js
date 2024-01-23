@@ -1,4 +1,7 @@
 import express from "express";
+import gameRouter from "./routes/GameRoutes.js";
+import genreRouter from "./routes/GenreRoutes.js";
+import voteRouter from "./routes/VoteRoutes.js";
 import { testConnection } from "./database/connect.js";
 import ControlModel from "./models/ControlModel.js";
 import GameModel from "./models/GameModel.js";
@@ -10,6 +13,10 @@ import { setupAssociations } from "./database/associations.js";
 const app = express();
 
 app.use(express.json());
+
+app.use(gameRouter);
+app.use(genreRouter);
+app.use(voteRouter);
 
 testConnection();
 
