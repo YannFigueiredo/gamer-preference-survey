@@ -1,9 +1,24 @@
 import VoteRepository from "../repositories/VoteRepository.js";
 
 class VoteController {
-  async listVotes(_, res) {
+  async listVotes(req, res) {
+    console.log(req.query.linesPerPage);
+    const linesPerPage = req.query.linesPerPage || 12;
+    const page = req.query.page || 0;
+    const min = req.query.min || "";
+    const max = req.query.max || "";
+    const orderBy = req.query.orderBy || "createdAt";
+    const direction = req.query.direction || "DESC";
+
     try {
-      const result = await VoteRepository.getVote();
+      const result = await VoteRepository.getVote(
+        linesPerPage,
+        page,
+        min,
+        max,
+        orderBy,
+        direction
+      );
 
       if(result) {
         await res.status(200).json(result);

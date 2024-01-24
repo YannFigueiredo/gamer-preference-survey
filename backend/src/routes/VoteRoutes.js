@@ -8,3 +8,5 @@ voteRouter.get("/votes/:id", VoteController.listVote);
 voteRouter.post("/votes", VoteController.createVote);
 voteRouter.put("/votes/:id", VoteController.updateVote);
 voteRouter.delete("/votes/:id", VoteController.deleteVote);
+
+export default voteRouter;

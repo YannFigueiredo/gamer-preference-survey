@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const recordsApi = axios.create({
-    baseURL: 'https://gamer-preference-survey.up.railway.app'
+    baseURL: 'http://localhost:3000'
 });
 
 export default recordsApi;

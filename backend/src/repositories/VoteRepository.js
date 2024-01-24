@@ -1,11 +1,30 @@
 import VoteModel from "../models/VoteModel.js";
+import { Op } from "sequelize";
 
 class VoteRepository {
-  async getVote() {
+  async getVote(
+    linesPerPage,
+    page,
+    min,
+    max,
+    orderBy,
+    direction
+  ) {
     try {
-      return await VoteModel.findAll(); 
+      return await VoteModel.findAll({
+        where: {
+          createdAt: {
+            [Op.gte]: min || 0,
+            [Op.lte]: max || Date.now() 
+          }
+        },
+        order: [[orderBy, direction]],
+        limit: linesPerPage,
+        offset: linesPerPage * ((page > 0 ? page : 1) - 1)
+      }); 
     } catch(error) {
       console.error("Erro ao listar todos os votos: ", error);
+      throw error;
     }
   }
 

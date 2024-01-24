@@ -9,10 +9,13 @@ import GenreModel from "./models/GenreModel.js";
 import VoteModel from "./models/VoteModel.js";
 import { seed } from "./database/seed.js";
 import { setupAssociations } from "./database/associations.js";
+import cors from "cors";
 
 const app = express();
 
 app.use(express.json());
+
+app.use(cors());
 
 app.use(gameRouter);
 app.use(genreRouter);

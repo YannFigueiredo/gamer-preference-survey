@@ -8,3 +8,5 @@ gameRouter.get("/games/:id", GameController.listGame);
 gameRouter.post("/games", GameController.createGame);
 gameRouter.put("/games/:id", GameController.updateGame);
 gameRouter.delete("/games/:id", GameController.deleteGame);
+
+export default gameRouter;
