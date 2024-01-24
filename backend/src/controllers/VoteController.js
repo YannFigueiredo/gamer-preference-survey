@@ -2,11 +2,10 @@ import VoteRepository from "../repositories/VoteRepository.js";
 
 class VoteController {
   async listVotes(req, res) {
-    console.log(req.query.linesPerPage);
-    const linesPerPage = req.query.linesPerPage || 12;
-    const page = req.query.page || 0;
-    const min = req.query.min || "";
-    const max = req.query.max || "";
+    const linesPerPage = parseInt(req.query.linesPerPage) || 12;
+    const page = parseInt(req.query.page) || 0;
+    const min = parseInt(req.query.min) || "";
+    const max = parseInt(req.query.max) || "";
     const orderBy = req.query.orderBy || "createdAt";
     const direction = req.query.direction || "DESC";
 
@@ -21,12 +20,17 @@ class VoteController {
       );
 
       if(result) {
-        await res.status(200).json(result);
+        await res.status(200).json(
+          {
+            content: result,
+            totalPages: 2
+          }
+        );
       } else {
         await res.status(404).json({message: "Não foi possível encontrar os votos."});
       }
     } catch(error) {
-      await res.status(400).json({message: "Não foi possível listar os votos: ", error});
+      await res.status(400).json({message: "Não foi possível listar os votos: ", error, teste: linesPerPage});
     }
   }
 

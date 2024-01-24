@@ -7,7 +7,7 @@ export type RecordResponse = {
 
 export type RecordItem = {
     id: number;
-    date: string;
+    createdAt: string;
     voter: string;
     age: number;
     gamePlatform: Platform;

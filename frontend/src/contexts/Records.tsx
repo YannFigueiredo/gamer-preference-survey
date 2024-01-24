@@ -5,7 +5,7 @@ import { RecordResponse, RecordContextType, RecordContextProps } from './types';
 const initialValue = {
     records: {content: [], totalPages: 0},
     setRecords: () => {},
-    page: '0',
+    page: '1',
     setPage: () => {},
     filter: '',
     setFilter: () => {}
@@ -19,7 +19,7 @@ export default function RecordProvider({children}: RecordContextProps){
     const [ filter, setFilter ] = useState<string>(initialValue.filter);
 
     async function loadApi(){
-        await recordsApi.get(`/votes?linesPerPage=12&page=${page}${filter}`)
+        await recordsApi.get(`/votes?linesPerPage=2&page=${page}${filter}`)
         .then(response => {
             setRecords(response.data);
         })

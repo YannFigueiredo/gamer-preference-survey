@@ -1,11 +1,15 @@
 import { Container, ContainerTable, Pages } from './styles';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { RecordContext } from '../../../../contexts/Records';
 import { formatDate } from '../../helpers';
 
 export default function Table(){
     const { records, page, setPage } = useContext(RecordContext);
     const paginationItems = Array.from(Array(records.totalPages).keys());
+
+    useEffect(() => {
+      console.log("records: ", records);
+    }, [records]);
         
     return(
         <Container>
@@ -24,7 +28,7 @@ export default function Table(){
                     <tbody>
                         {records.content.map(record => (
                             <tr key={record.id}>
-                                <td>{formatDate(record.date)}</td>
+                                <td>{formatDate(record.createdAt)}</td>
                                 <td>{record.voter}</td>
                                 <td>{record.age}</td>
                                 <td>{record.gamePlatform}</td>
@@ -38,7 +42,18 @@ export default function Table(){
             <Pages>
                 {
                     paginationItems.map(item => (
-                        <button key={item} className={page === item.toString() ? 'active' : ''} onClick={() => {setPage(item.toString());}}>{item + 1}</button>
+                        <button 
+                          key={item} 
+                          className={(parseInt(page) - 1).toString() === item.toString() ? 'active' : ''} 
+                          onClick={
+                            () => {
+                              const pageItem = item + 1;
+                              setPage(pageItem.toString());
+                            }
+                          }
+                        >
+                          {item + 1}
+                        </button>
                     ))
                 }
             </Pages>
