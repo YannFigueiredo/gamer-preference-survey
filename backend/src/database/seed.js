@@ -152,16 +152,19 @@ export const seed = async () => {
 
       await VoteModel.create({
         voter: "Yann Figueiredo",
+        age: 28,
         GameId: 2,
       });
 
       await VoteModel.create({
         voter: "Amanda Mendes",
+        age: 23,
         GameId: 6,
       });
 
       await VoteModel.create({
         voter: "Fernando Guanais",
+        age: 14,
         GameId: 19,
       });
 

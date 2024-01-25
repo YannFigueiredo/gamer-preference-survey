@@ -2,7 +2,7 @@ import { Game } from './types';
 import { RecordItem } from '../../contexts/types';
 
 export const buildBarSeries = (games: Game[], records: RecordItem[]) => {
-  const mappedGames = games.map(game => {
+  /*const mappedGames = games.map(game => {
     const filteredGames = records.filter(item => {
       return item.gameName === game.title && item.gamePlatform === game.platform
     });
@@ -55,5 +55,5 @@ export const getGenderChartData = (records: RecordItem[]) => {
   return {
     labels,
     series
-  };
+  };*/
 };

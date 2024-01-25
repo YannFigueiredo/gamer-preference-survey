@@ -2,7 +2,7 @@ import Filters from '../../components/Filters';
 import { Container, Stats, GamesStats, OthersStats, PlatformsStats, GenresStats } from './styles';
 import Chart from 'react-apexcharts';
 import { barOptions, pieOptions } from './chart-options';
-import { buildBarSeries, getPlatformChartData, getGenderChartData } from './helpers';
+//import { buildBarSeries, getPlatformChartData, getGenderChartData } from './helpers';
 import apiRecords from '../../services/records-api';
 import { useEffect, useState } from 'react';
 
@@ -27,7 +27,7 @@ export default function Graphics(){
     const [platformData, setPlatformData] = useState<PieChartData>(initialPieData);
     const [genrerData, setGenderData] = useState<PieChartData>(initialPieData);
 
-    useEffect(() => {
+    /*useEffect(() => {
         async function getData(){
             const recordsResponse = await apiRecords.get(`/votes`);
             const gamesResponse = await apiRecords.get(`/games`);
@@ -40,7 +40,7 @@ export default function Graphics(){
         }
 
         getData();
-    }, [])
+    }, [])*/
 
     return(
         <Container>

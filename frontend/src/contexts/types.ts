@@ -10,9 +10,10 @@ export type RecordItem = {
     createdAt: string;
     voter: string;
     age: number;
-    gamePlatform: Platform;
-    gameGenre: string;
-    gameName: string;
+    GameId: number;
+    gamePlatform?: string;
+    gameGenre?: string;
+    gameName?: string;
 }
 
 export type Platform = 'Playstation' | 'PC' | 'Xbox';
@@ -34,6 +35,7 @@ export type GameItem = {
     id: number;
     title: string;
     platform: Platform;
+    GenreId: number;
 };
 
 export type GameContextType = {

@@ -18,7 +18,7 @@ export default function GameProvider({children}: GameContextProps){
             .then(response => {
                 setGames(response.data);
             })
-            .catch((error) => {console.error("Erro tes: " + error)});
+            .catch((error) => {console.error("Erro: " + error)});
         }
 
         loadApi();
