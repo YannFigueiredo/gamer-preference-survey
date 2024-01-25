@@ -49,11 +49,6 @@ export default function Table(){
 
       loadGenres();
     }, []);
-
-    useEffect(() => {
-      console.log(games);
-      console.log(genres);
-    }, [games, records]);
         
     return(
         <Container>

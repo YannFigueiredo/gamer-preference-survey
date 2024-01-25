@@ -23,7 +23,7 @@ class VoteController {
         await res.status(200).json(
           {
             content: result,
-            totalPages: 2
+            totalPages: result.length/parseInt(linesPerPage) < 1 ? 1 : result.length/parseInt(linesPerPage)
           }
         );
       } else {
