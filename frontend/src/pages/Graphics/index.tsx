@@ -2,9 +2,10 @@ import Filters from '../../components/Filters';
 import { Container, Stats, GamesStats, OthersStats, PlatformsStats, GenresStats } from './styles';
 import Chart from 'react-apexcharts';
 import { barOptions, pieOptions } from './chart-options';
-//import { buildBarSeries, getPlatformChartData, getGenderChartData } from './helpers';
+import { buildBarSeries, getPlatformChartData, getGenderChartData } from './helpers';
 import apiRecords from '../../services/records-api';
 import { useEffect, useState } from 'react';
+import { GameItem } from '../../contexts/types';
 
 type PieChartData = {
     labels: string[];
@@ -27,20 +28,22 @@ export default function Graphics(){
     const [platformData, setPlatformData] = useState<PieChartData>(initialPieData);
     const [genrerData, setGenderData] = useState<PieChartData>(initialPieData);
 
-    /*useEffect(() => {
+    useEffect(() => {
         async function getData(){
             const recordsResponse = await apiRecords.get(`/votes`);
             const gamesResponse = await apiRecords.get(`/games`);
+            const genresResponse = await apiRecords.get(`/genres`);
+            
             const barData = buildBarSeries(gamesResponse.data, recordsResponse.data.content);
             setBarChartData(barData);
-            const platformChartData = getPlatformChartData(recordsResponse.data.content);
+            const platformChartData = getPlatformChartData(gamesResponse.data, recordsResponse.data.content);
             setPlatformData(platformChartData);
-            const genrerChartData = getGenderChartData(recordsResponse.data.content);
+            const genrerChartData = getGenderChartData(gamesResponse.data, genresResponse.data, recordsResponse.data.content);
             setGenderData(genrerChartData);
         }
 
         getData();
-    }, [])*/
+    }, [])
 
     return(
         <Container>
