@@ -3,9 +3,9 @@ import VoteRepository from "../repositories/VoteRepository.js";
 class VoteController {
   async listVotes(req, res) {
     const linesPerPage = parseInt(req.query.linesPerPage) || 12;
-    const page = parseInt(req.query.page) || 0;
-    const min = parseInt(req.query.min) || "";
-    const max = parseInt(req.query.max) || "";
+    const page = parseInt(req.query.page) || 1;
+    let min = req.query.min ? new Date(req.query.min) : new Date(0);
+    let max = req.query.max ? new Date(req.query.max) : new Date();
     const orderBy = req.query.orderBy || "createdAt";
     const direction = req.query.direction || "DESC";
 
@@ -22,8 +22,10 @@ class VoteController {
       if(result) {
         await res.status(200).json(
           {
-            content: result,
-            totalPages: result.length/parseInt(linesPerPage) < 1 ? 1 : result.length/parseInt(linesPerPage)
+            content: result.pagination,
+            totalPages: result.total/parseInt(linesPerPage) < 1 ? 1 : Math.ceil(result.total/parseInt(linesPerPage)),
+            min: min,
+            max: max
           }
         );
       } else {

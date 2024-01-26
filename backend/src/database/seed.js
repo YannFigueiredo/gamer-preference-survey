@@ -168,6 +168,78 @@ export const seed = async () => {
         GameId: 19,
       });
 
+      await VoteModel.create({
+        voter: "Max Figueiredo",
+        age: 5,
+        GameId: 11,
+      });
+
+      await VoteModel.create({
+        voter: "Cristiano Messi",
+        age: 38,
+        GameId: 9,
+      });
+
+      await VoteModel.create({
+        voter: "José Rodrigues",
+        age: 25,
+        GameId: 16,
+      });
+
+      await VoteModel.create({
+        voter: "Thiago Tavares",
+        age: 30,
+        GameId: 5,
+      });
+
+      await VoteModel.create({
+        voter: "Marcus Santiago",
+        age: 30,
+        GameId: 7,
+      });
+
+      await VoteModel.create({
+        voter: "Daniel Remédios",
+        age: 25,
+        GameId: 8,
+      });
+
+      await VoteModel.create({
+        voter: "Ádilla Figueiredo",
+        age: 25,
+        GameId: 1,
+      });
+
+      await VoteModel.create({
+        voter: "Ana Brito",
+        age: 73,
+        GameId: 2,
+      });
+
+      await VoteModel.create({
+        voter: "Claudia Figueiredo",
+        age: 53,
+        GameId: 14,
+      });
+
+      await VoteModel.create({
+        voter: "Alex Figueiredo",
+        age: 48,
+        GameId: 3,
+      });
+
+      await VoteModel.create({
+        voter: "Osmar Tadeu",
+        age: 33,
+        GameId: 15,
+      });
+
+      await VoteModel.create({
+        voter: "Maria Helena",
+        age: 24,
+        GameId: 13,
+      });
+
       await ControlModel.create({
         name: "seed_executed"
       });

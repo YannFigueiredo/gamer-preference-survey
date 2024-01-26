@@ -11,17 +11,20 @@ class VoteRepository {
     direction
   ) {
     try {
-      return await VoteModel.findAll({
-        where: {
-          createdAt: {
-            [Op.gte]: min || 0,
-            [Op.lte]: max || Date.now() 
-          }
-        },
-        order: [[orderBy, direction]],
-        limit: linesPerPage,
-        offset: linesPerPage * ((page > 0 ? page : 1) - 1)
-      }); 
+      return {
+        pagination: await VoteModel.findAll({
+          where: {
+            createdAt: {
+              [Op.gte]: min,
+              [Op.lte]: max 
+            }
+          },
+          order: [[orderBy, direction]],
+          limit: linesPerPage,
+          offset: linesPerPage * ((page > 0 ? page : 1) - 1)
+        }),
+        total: await VoteModel.count()
+      }
     } catch(error) {
       console.error("Erro ao listar todos os votos: ", error);
       throw error;
