@@ -24,8 +24,7 @@ class VoteController {
           {
             content: result.pagination,
             totalPages: result.total/parseInt(linesPerPage) < 1 ? 1 : Math.ceil(result.total/parseInt(linesPerPage)),
-            min: min,
-            max: max
+            totalItems: result.total
           }
         );
       } else {

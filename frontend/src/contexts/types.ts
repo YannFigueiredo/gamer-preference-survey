@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 export type RecordResponse = {
     content: RecordItem[];
     totalPages: number;
+    totalItems: number;
 };
 
 export type RecordItem = {

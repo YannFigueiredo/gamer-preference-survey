@@ -23,7 +23,14 @@ class VoteRepository {
           limit: linesPerPage,
           offset: linesPerPage * ((page > 0 ? page : 1) - 1)
         }),
-        total: await VoteModel.count()
+        total: await VoteModel.count(
+          {where: {
+            createdAt: {
+              [Op.gte]: min,
+              [Op.lte]: max 
+            }
+          }}
+        )
       }
     } catch(error) {
       console.error("Erro ao listar todos os votos: ", error);

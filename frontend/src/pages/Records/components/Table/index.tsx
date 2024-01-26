@@ -11,10 +11,10 @@ type GenreItem = {
 }
 
 export default function Table(){
-    const { records, page, setPage } = useContext(RecordContext);
+    const { records, filter, page, setPage } = useContext(RecordContext);
     const { games } = useContext(GameContext);
     const [ genres, setGenres ] = useState<GenreItem[]>([]);
-    const paginationItems = Array.from(Array(records.totalPages).keys());
+    const [ paginationItems, setPaginationItems ] = useState(Array.from(Array(records.totalPages).keys()));
 
     const getPlatform = (gameId: number) => {
       const game =  games.filter(game => game.id === gameId)[0];
@@ -49,6 +49,11 @@ export default function Table(){
 
       loadGenres();
     }, []);
+
+    useEffect(() => {
+      console.log(records);
+      setPaginationItems(Array.from(Array(records.totalPages).keys()));
+    }, [records]);
         
     return(
         <Container>
