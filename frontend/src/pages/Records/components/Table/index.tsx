@@ -11,7 +11,7 @@ type GenreItem = {
 }
 
 export default function Table(){
-    const { records, filter, page, setPage } = useContext(RecordContext);
+    const { records, page, setPage } = useContext(RecordContext);
     const { games } = useContext(GameContext);
     const [ genres, setGenres ] = useState<GenreItem[]>([]);
     const [ paginationItems, setPaginationItems ] = useState(Array.from(Array(records.totalPages).keys()));
@@ -32,19 +32,19 @@ export default function Table(){
       const game =  games.filter(game => game.id === gameId)[0];
       let genre: string = "";
 
-      if(game) genre = genres.filter(genre => game.GenreId === genre.id)[0].name;
+      if(game && genres) genre = genres.filter(genre => game.GenreId === genre.id)[0]?.name;
 
       return genre ? genre : "";
     }
 
     useEffect(() => {
       const loadGenres = async () => {
-        setGenres(await recordsApi.get('/genres')
-        .then(response => {return response.data})
+        await recordsApi.get('/genres')
+        .then(response => {setGenres(response.data)})
         .catch(error => {
-          console.error("Erro ao listar ps gêneros: ", error);
+          console.error("Erro ao listar os gêneros: ", error);
           throw error;
-        }));
+        });
       };
 
       loadGenres();

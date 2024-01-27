@@ -22,6 +22,7 @@ class VoteController {
       if(result) {
         await res.status(200).json(
           {
+            completeContent: result.completeList,
             content: result.pagination,
             totalPages: result.total/parseInt(linesPerPage) < 1 ? 1 : Math.ceil(result.total/parseInt(linesPerPage)),
             totalItems: result.total

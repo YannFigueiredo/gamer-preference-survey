@@ -12,6 +12,7 @@ class VoteRepository {
   ) {
     try {
       return {
+        completeList: await VoteModel.findAll(),
         pagination: await VoteModel.findAll({
           where: {
             createdAt: {

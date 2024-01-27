@@ -22,7 +22,7 @@ const getGenre = (games: Game[], genres: GenreItem[], gameId: number) => {
   const game =  games.filter(game => game.id === gameId)[0];
   let genre: string = "";
 
-  if(game) genre = genres.filter(genre => game.GenreId === genre.id)[0].name;
+  if(game && genres) genre = genres.filter(genre => game.GenreId === genre.id)[0]?.name;
 
   return genre ? genre : "";
 }
@@ -65,18 +65,19 @@ export const getPlatformChartData = (games: Game[], records: RecordItem[]) => {
 };
 
 export const getGenderChartData = (games: Game[], genres: GenreItem[], records: RecordItem[]) => {
-   const genderByAmount = records.reduce((accumulator, currentValue) => {
-     if (accumulator[getGenre(games, genres, currentValue.GameId)] !== undefined) {
-       accumulator[getGenre(games, genres, currentValue.GameId)] += 1;
-     } else {
-      accumulator[getGenre(games, genres, currentValue.GameId)] = 1;
-     }
+  console.log("generos: ", genres);
+  const genderByAmount = records.reduce((accumulator, currentValue) => {
+    if (accumulator[getGenre(games, genres, currentValue.GameId)] !== undefined) {
+      accumulator[getGenre(games, genres, currentValue.GameId)] += 1;
+    } else {
+    accumulator[getGenre(games, genres, currentValue.GameId)] = 1;
+    }
 
-     return accumulator;
-   }, {} as Record<string, number>);
+    return accumulator;
+  }, {} as Record<string, number>);
 
-   const labels = Object.keys(genderByAmount);
-   const series = Object.values(genderByAmount);
+  const labels = Object.keys(genderByAmount);
+  const series = Object.values(genderByAmount);
 
   return {
     labels,
