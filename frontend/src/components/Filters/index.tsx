@@ -20,7 +20,7 @@ export default function Filters({link, textButton, justifyContent}: Props){
         
         setMinDate('');
         setMaxDate('');
-        setPage('0');
+        setPage('1');
         
         inputMinDate.value = '';
         inputMaxDate.value = '';
@@ -30,7 +30,7 @@ export default function Filters({link, textButton, justifyContent}: Props){
 
     useEffect(() => {
         if(minDate !== '' && maxDate !== '' && (maxDate > minDate)){
-            setPage('0');
+            setPage('1');
             
             setFilter(`&min=${minDate}&max=${maxDate}`)
         }

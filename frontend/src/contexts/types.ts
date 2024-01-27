@@ -3,16 +3,18 @@ import { ReactNode } from "react";
 export type RecordResponse = {
     content: RecordItem[];
     totalPages: number;
+    totalItems: number;
 };
 
 export type RecordItem = {
     id: number;
-    date: string;
+    createdAt: string;
     voter: string;
     age: number;
-    gamePlatform: Platform;
-    gameGenre: string;
-    gameName: string;
+    GameId: number;
+    gamePlatform?: string;
+    gameGenre?: string;
+    gameName?: string;
 }
 
 export type Platform = 'Playstation' | 'PC' | 'Xbox';
@@ -34,6 +36,7 @@ export type GameItem = {
     id: number;
     title: string;
     platform: Platform;
+    GenreId: number;
 };
 
 export type GameContextType = {

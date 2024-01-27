@@ -1,11 +1,59 @@
 import { Container, ContainerTable, Pages } from './styles';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { RecordContext } from '../../../../contexts/Records';
+import { GameContext } from '../../../../contexts/Games';
+import recordsApi from '../../../../services/records-api';
 import { formatDate } from '../../helpers';
+
+type GenreItem = {
+  id: number;
+  name: string;
+}
 
 export default function Table(){
     const { records, page, setPage } = useContext(RecordContext);
-    const paginationItems = Array.from(Array(records.totalPages).keys());
+    const { games } = useContext(GameContext);
+    const [ genres, setGenres ] = useState<GenreItem[]>([]);
+    const [ paginationItems, setPaginationItems ] = useState(Array.from(Array(records.totalPages).keys()));
+
+    const getPlatform = (gameId: number) => {
+      const game =  games.filter(game => game.id === gameId)[0];
+
+      return game ? game.platform : "";
+    };
+
+    const getName = (gameId: number) => {
+      const game =  games.filter(game => game.id === gameId)[0];
+
+      return game ? game.title : "";
+    };
+
+    const getGenre = (gameId: number) => {
+      const game =  games.filter(game => game.id === gameId)[0];
+      let genre: string = "";
+
+      if(game && genres) genre = genres.filter(genre => game.GenreId === genre.id)[0]?.name;
+
+      return genre ? genre : "";
+    }
+
+    useEffect(() => {
+      const loadGenres = async () => {
+        await recordsApi.get('/genres')
+        .then(response => {setGenres(response.data)})
+        .catch(error => {
+          console.error("Erro ao listar os gêneros: ", error);
+          throw error;
+        });
+      };
+
+      loadGenres();
+    }, []);
+
+    useEffect(() => {
+      console.log(records);
+      setPaginationItems(Array.from(Array(records.totalPages).keys()));
+    }, [records]);
         
     return(
         <Container>
@@ -24,12 +72,12 @@ export default function Table(){
                     <tbody>
                         {records.content.map(record => (
                             <tr key={record.id}>
-                                <td>{formatDate(record.date)}</td>
+                                <td>{formatDate(record.createdAt)}</td>
                                 <td>{record.voter}</td>
                                 <td>{record.age}</td>
-                                <td>{record.gamePlatform}</td>
-                                <td>{record.gameGenre}</td>
-                                <td>{record.gameName}</td>
+                                <td>{getPlatform(record.GameId)}</td>
+                                <td>{getGenre(record.GameId)}</td>
+                                <td>{getName(record.GameId)}</td>
                             </tr>
                         ))}
                     </tbody>
@@ -38,7 +86,18 @@ export default function Table(){
             <Pages>
                 {
                     paginationItems.map(item => (
-                        <button key={item} className={page === item.toString() ? 'active' : ''} onClick={() => {setPage(item.toString());}}>{item + 1}</button>
+                        <button 
+                          key={item} 
+                          className={(parseInt(page) - 1).toString() === item.toString() ? 'active' : ''} 
+                          onClick={
+                            () => {
+                              const pageItem = item + 1;
+                              setPage(pageItem.toString());
+                            }
+                          }
+                        >
+                          {item + 1}
+                        </button>
                     ))
                 }
             </Pages>

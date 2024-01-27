@@ -19,7 +19,7 @@ export default function Registration(){
     const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         
-        let record: Record = {voter: name, age: age, gameId: game};
+        let record: Record = {voter: name, age: age, GameId: game};
 
         apiRecords.post('/votes', record)
         .then(response => {

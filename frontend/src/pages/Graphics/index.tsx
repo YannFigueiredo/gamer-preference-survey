@@ -3,8 +3,15 @@ import { Container, Stats, GamesStats, OthersStats, PlatformsStats, GenresStats 
 import Chart from 'react-apexcharts';
 import { barOptions, pieOptions } from './chart-options';
 import { buildBarSeries, getPlatformChartData, getGenderChartData } from './helpers';
-import apiRecords from '../../services/records-api';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { GameContext } from '../../contexts/Games';
+import recordsApi from '../../services/records-api';
+import { RecordItem } from '../../contexts/types';
+
+type GenreItem = {
+  id: number;
+  name: string;
+}
 
 type PieChartData = {
     labels: string[];
@@ -21,26 +28,49 @@ const initialPieData = {
     series: []
 }
 
-
 export default function Graphics(){
     const [barChartData, setBarChartData] = useState<BarChartData[]>([]);
     const [platformData, setPlatformData] = useState<PieChartData>(initialPieData);
-    const [genrerData, setGenderData] = useState<PieChartData>(initialPieData);
+    const [genreData, setGenderData] = useState<PieChartData>(initialPieData);
+    const { games } = useContext(GameContext);
+    const [ genres, setGenres ] = useState<GenreItem[]>([]);
+    const [ records, setRecords ] = useState<RecordItem[]>([]);
+
+    async function loadGenres(){
+      await recordsApi.get('/genres')
+      .then(response => {setGenres(response.data)})
+      .catch(error => {
+        console.error("Erro ao listar os gêneros: ", error);
+        throw error;
+      });
+    };
+
+    async function loadRecords(){
+      await recordsApi.get('/votes')
+      .then(response => {setRecords(response.data.completeContent)})
+      .catch(error => {
+        console.error("Erro ao listar os votos: ", error);
+        throw error;
+      });
+    };
+
+    function getData(){
+        const barData = buildBarSeries(games, records);
+        setBarChartData(barData);
+        const platformChartData = getPlatformChartData(games, records);
+        setPlatformData(platformChartData);
+        const genreChartData = getGenderChartData(games, genres, records);
+        setGenderData(genreChartData);
+    }
 
     useEffect(() => {
-        async function getData(){
-            const recordsResponse = await apiRecords.get(`/votes`);
-            const gamesResponse = await apiRecords.get(`/games`);
-            const barData = buildBarSeries(gamesResponse.data, recordsResponse.data.content);
-            setBarChartData(barData);
-            const platformChartData = getPlatformChartData(recordsResponse.data.content);
-            setPlatformData(platformChartData);
-            const genrerChartData = getGenderChartData(recordsResponse.data.content);
-            setGenderData(genrerChartData);
-        }
+      loadGenres();
+      loadRecords();
+    }, []);
 
-        getData();
-    }, [])
+    useEffect(() => {
+      getData();
+    }, [genres, records]);
 
     return(
         <Container>
@@ -74,10 +104,10 @@ export default function Graphics(){
                         <h2>Gêneros</h2>
                         <div>
                             <Chart
-                                options={{...pieOptions, labels: genrerData?.labels}}
+                                options={{...pieOptions, labels: genreData?.labels}}
                                 type="donut"
                                 width="85%"
-                                series={genrerData?.series}
+                                series={genreData?.series}
                             />
                         </div>
                     </GenresStats>

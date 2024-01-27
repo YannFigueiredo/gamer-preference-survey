@@ -3,9 +3,9 @@ import recordsApi from '../services/records-api';
 import { RecordResponse, RecordContextType, RecordContextProps } from './types';
 
 const initialValue = {
-    records: {content: [], totalPages: 0},
+    records: {content: [], totalPages: 0, totalItems: 0},
     setRecords: () => {},
-    page: '0',
+    page: '1',
     setPage: () => {},
     filter: '',
     setFilter: () => {}
@@ -27,7 +27,7 @@ export default function RecordProvider({children}: RecordContextProps){
     }
 
     useEffect(() => {
-        loadApi();
+      loadApi();
     }, [page, filter]);
 
     return(
